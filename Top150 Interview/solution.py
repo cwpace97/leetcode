@@ -87,3 +87,16 @@ class Solution:
                 profit += prices[i] - prices[i-1]
         
         return profit
+    
+    # 274. H-Index
+    def hIndex(self, citations: List[int]) -> int:
+        startVal = len(citations)
+        while startVal > 0:
+            count=0
+            for val in citations:
+                if val >= startVal:
+                    count +=1
+            if count >= startVal:
+                break
+            startVal -=1
+        return startVal
